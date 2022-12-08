@@ -104,8 +104,12 @@ def message_ct(client, message, say, context):
 @app.message(re.compile(r"^!img-help$"))
 def message_help(client, message, say, context):
     update_executable_count()
-    say("`!img [半角英数字記号で構成されるプロンプト]` の形式で画像の生成ができます。エログロ画像などは生成しないようにしてください。\n" +
-    f"`!img-ct` で残りの生成可能回数を確認できます。本日は、あと `{executable_count}` 回生成できます。日が変わると `{day_increment}` 回増えます。") 
+    say("`!img [半角英数字記号で構成されるプロンプト]` の形式で画像の生成ができます。\n" +
+    f"`!img-ct` で残りの生成可能回数を確認できます。\n" +
+    "生成には数秒程度の時間がかかります。絶対にエログロ画像などは生成しないようにしてください。停止することになります。" +
+    "また、誰かが生成している際には実行できません。内部的にはNovelAIというWebサービスを有償利用しています。" +
+    "そのため生成した画像のライセンスはCC0 1.0 Universal Public Domain Dedicationとなり、誰にも著作権は発生しません。" +
+    "またプロンプト探しには https://baskmedia.jp/novelai-code-of-the-elements1/ をご利用ください。")
 
 @app.event("message")
 def handle_message_events(body, logger):
