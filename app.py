@@ -105,7 +105,7 @@ def message_ct(client, message, say, context):
 def message_help(client, message, say, context):
     update_executable_count()
     say("`!img [半角英数字記号で構成されるプロンプト]` の形式で画像の生成ができます。エログロ画像などは生成しないようにしてください。\n" +
-    f"`!img-ct` で残りの生成回数の制限を確認できます。本日は、あと `{executable_count}` 回生成できます。日が変わると `{day_increment}` 回増えます。") 
+    f"`!img-ct` で残りの生成可能回数を確認できます。本日は、あと `{executable_count}` 回生成できます。日が変わると `{day_increment}` 回増えます。") 
 
 @app.event("message")
 def handle_message_events(body, logger):

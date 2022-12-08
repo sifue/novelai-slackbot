@@ -1,25 +1,34 @@
 # NovelAI Slackbot
 Slackを通じてAIアート生成するNovelAIを利用するためのBot
 
+## ボットの使い方
+- 画像の生成: !img \[半角英数字記号で構成されるプロンプト\]
+- 残りの生成可能回数: !img-ct
+- 使い方を表示: !img-help
+
 ## 環境構築
 ### NovelAIのアカウントの用意 (ID/PASSWOARD形式)
 [NovelAI](https://novelai.net/)にアクセスしてID/PASSWOARD形式でアカウント作成。
-画像生成を行うには、Tablet以上の課金プランに入会し、クレジットを払っている必要がある。
+画像生成を行うには、Tablet以上の課金プランに入会し、Anlasを得ている必要がある。
 
-なおREST APIを利用したアクセスに関しては個人利用の範囲ではOKであると、NovelAIの開発者より[利用規約](https://novelai.net/terms)を確認した上で[サポートDiscord](https://discord.com/invite/novelai)にて[許可](https://discord.com/channels/836774308772446268/1020000423228215306/threads/1027326619595067465)をもらっています。
+なおREST APIを利用したアクセスに関しては個人利用の範囲ではOKであると、NovelAIの開発者より[利用規約](https://novelai.net/terms)を確認した上で[サポートDiscord](https://discord.com/invite/novelai)にて[許可](https://discord.com/channels/836774308772446268/1020000423228215306/threads/1027326619595067465)がある。
 
 <kbd><img src="image/restapi.png"></kbd><br>
 
-## Slackのアプリに必要な権限
-アプリの作り方は[このドキュメント](https://slack.dev/bolt-python/ja-jp/tutorial/getting-started)に準拠。
-必要権限は以下。
+### Slack Botのトークンの用意
+[Bolt 入門ガイド](https://slack.dev/bolt-python/ja-jp/tutorial/getting-started)に準拠。
 
-### OAuth & Permissions - Bot Token Scopes
+- SLACK_BOT_TOKEN
+- SLACK_APP_TOKEN
+
+を取得しておく。
+
+#### SLACK_BOT_TOKENで要求するスコープ
 - chat:write
 - files:write
 - files:read
 
-### Event Subscriptions
+#### Event SubscriptionsのSubscribe to Bot Events で要求するスコープ
 - message.channels
 - message.groups
 - message.im
@@ -43,7 +52,7 @@ executable_count_setting.json を作成して、
 - count: その日付時点の実行可能回数
 - day_increment: 1日で増加する実行可能回数
 
-を設定して記述しておきます。
+を設定して上限実行回数を記述。
 
 ```json
 {
