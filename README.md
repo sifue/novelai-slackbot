@@ -1,9 +1,11 @@
 # NovelAI Slackbot
 Slackを通じてAIアート生成するNovelAIを利用するためのBot
 
+<kbd><img src="image/usage.png"></kbd><br>
+
 ## ボットの使い方
 - 画像の生成: !img \[半角英数字記号で構成されるプロンプト\]
-- 残りの生成可能回数: !img-ct
+- 残りの生成可能回数を表示: !img-ct
 - 使い方を表示: !img-help
 
 ## 環境構築
