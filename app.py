@@ -109,7 +109,7 @@ def message_help(client, message, say, context):
     "生成には数秒程度の時間がかかります。絶対にエログロ画像などは生成しないようにしてください。停止することになります。" +
     "また、誰かが生成している際には実行できません。内部的にはNovelAIというWebサービスを有償利用しています。" +
     "そのため生成した画像のライセンスはCC0 1.0 Universal Public Domain Dedicationとなり、誰にも著作権は発生しません。" +
-    "またプロンプト探しには https://baskmedia.jp/novelai-code-of-the-elements1/ をご利用ください。")
+    "またプロンプト探しには https://p1atdev.notion.site/5d32c4e0eafe4e6997573e937bef120d をご利用ください。")
 
 @app.event("message")
 def handle_message_events(body, logger):
