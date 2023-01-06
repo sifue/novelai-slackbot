@@ -37,9 +37,9 @@ Slackを通じてAIアート生成するNovelAIを利用するためのBot
 - message.mpim 
 
 ### インストール方法、起動方法
-Python3.9.6以上で動作を確認済み。
+Docker Engine (バージョン3のdocker-composeに対応の必要あり)およびDocker Composeプラグインのインストール。(Docker version 20.10.22, build 3a2c30bで確認済み)
 
-.env ファイルを実行フォルダ内に作成して、自分のクレデンシャル情報を記述
+`opt/.env` ファイルを実行フォルダ内に作成して、自分のクレデンシャル情報を記述
 
 ```
 NAI_USERNAME=xxxxxxx@example.com
@@ -48,7 +48,7 @@ SLACK_BOT_TOKEN=xoxb-999999999999999999999999
 SLACK_APP_TOKEN=xapp-999999999999999999999999
 ```
 
-executable_count_setting.json を作成して、
+`opt/executable_count_setting.json` を作成して、
 
 - date: 日付
 - count: その日付時点の実行可能回数
@@ -64,25 +64,19 @@ executable_count_setting.json を作成して、
 }
 ```
 
-あとは以下を実行。
+あとは以下を実行してイメージをビルド&実行。
 
 ```sh
-pip3 install python-dotenv --upgrade
-pip3 install novelai-api --upgrade
-pip3 install slack_bolt --upgrade
-pip3 list # python-dotenv と novelai-api と slack-bolt と slack-sdkを確認
-python3 app.py
+docker compose up -d --build
 ```
 
-以上で起動。tmuxなどのセッションを維持するツールで起動することを前提としている。
+以上で起動。
 
-なお、novelai-apiはアップデートがよくあるため、
-
-```sh
-pip3 install novelai-api --upgrade
+```
+docker compose down
 ```
 
-は時折実行して再起動する必要がある。動作確認バージョンは、novelai-api v0.10.2
+で停止。なお、novelai-apiはアップデートがよくあるため、その時には、`docker rmi [イメージID]` でDockerイメージを削除し、再度ビルドしなおすとよい。
 
 ## LICNESE
 MIT

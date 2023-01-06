@@ -1,3 +1,10 @@
+opt/.env
+opt/generated.png
+opt/executable_count_setting.json
+opt/__pycache__
+
+# 非Docker対応バージョン用の.gitignore
 .env
 generated.png
 executable_count_setting.json
+__pycache__
