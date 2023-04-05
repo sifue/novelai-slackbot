@@ -1,3 +1,4 @@
+import traceback
 from asyncio import run
 from boilerplate import API
 from novelai_api.ImagePreset import ImageModel, ImagePreset, ImageResolution, UCPreset
@@ -94,6 +95,7 @@ def message_img(client, message, say, context):
     except Exception as e:
         usingUser = None
         print(e)
+        print(traceback.format_exc())
         say(f"エラーが発生しました。やり方を変えて試してみてください。 Error: {e}")
 
 @app.message(re.compile(r"^!img-ct$"))
